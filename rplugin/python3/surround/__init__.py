@@ -1,9 +1,9 @@
-import neovim
+import pynvim
 import re
 
 # todo : on )
 
-@neovim.plugin
+@pynvim.plugin
 class SurroundPlugin(object):
     def __init__(self, nvim):
         self.nvim = nvim
@@ -39,7 +39,7 @@ class SurroundPlugin(object):
             return self.search_surroundings(surrounding, index[0], index[1] + 1)
         return
 
-    @neovim.command('RmSurround', range='', nargs='0', sync=True)
+    @pynvim.command('RmSurround', range='', nargs='0', sync=True)
     def remove_surround(self, args, range):
         cursor = self.nvim.current.window.cursor
         surrounding = self.lookup_surrounding(self.nvim.current.line[cursor[1]])
@@ -57,7 +57,7 @@ class SurroundPlugin(object):
             = self.nvim.current.line[:cursor[1]] \
                 + self.nvim.current.line[cursor[1]+1:]
 
-    @neovim.function('ChSurround', sync=True)
+    @pynvim.function('ChSurround', sync=True)
     def change_surround(self, args):
         cursor = self.nvim.current.window.cursor
         before_surrounding = self.lookup_surrounding(self.nvim.current.line[cursor[1]])
@@ -85,7 +85,7 @@ class SurroundPlugin(object):
                 + self.nvim.current.line[match.start():] \
                 + surrounding[1]
 
-    @neovim.function('SurroundLine', sync=True)
+    @pynvim.function('SurroundLine', sync=True)
     def surround_line(self, args):
         surrounding = self.lookup_surrounding(args[0])
         if surrounding:
@@ -104,7 +104,7 @@ class SurroundPlugin(object):
                 + surrounding[1] \
                 + line[right:]
 
-    @neovim.function('SurroundWord', sync=True)
+    @pynvim.function('SurroundWord', sync=True)
     def surround_word(self, args):
         surrounding = self.lookup_surrounding(args[0])
         if surrounding:
