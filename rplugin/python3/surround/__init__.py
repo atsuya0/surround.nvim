@@ -40,7 +40,7 @@ class SurroundPlugin(object):
         return
 
     @neovim.command('RmSurround', range='', nargs='0', sync=True)
-    def rm_surround(self, args, range):
+    def remove_surround(self, args, range):
         cursor = self.nvim.current.window.cursor
         surrounding = self.lookup_surrounding(self.nvim.current.line[cursor[1]])
         if not surrounding:
@@ -58,7 +58,7 @@ class SurroundPlugin(object):
                 + self.nvim.current.line[cursor[1]+1:]
 
     @neovim.function('ChSurround', sync=True)
-    def ch_surround(self, args):
+    def change_surround(self, args):
         cursor = self.nvim.current.window.cursor
         before_surrounding = self.lookup_surrounding(self.nvim.current.line[cursor[1]])
         after_surrounding = self.lookup_surrounding(args[0])
