@@ -1,8 +1,6 @@
 import pynvim
 import re
 
-# todo : on )
-
 @pynvim.plugin
 class SurroundPlugin(object):
     def __init__(self, nvim):
