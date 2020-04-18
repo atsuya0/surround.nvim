@@ -76,7 +76,7 @@ class SurroundPlugin(object):
             = self.nvim.current.line[:cursor[1]] \
                 + after_surrounding[0] + self.nvim.current.line[cursor[1]+1:]
 
-    def getInsertedLine(self, surrounding):
+    def get_inserted_line(self, surrounding):
         match = re.search('\S', self.nvim.current.line)
         return self.nvim.current.line[:match.start()] \
                 + surrounding[0] \
@@ -87,9 +87,9 @@ class SurroundPlugin(object):
     def surround_line(self, args):
         surrounding = self.lookup_surrounding(args[0])
         if surrounding:
-            self.nvim.current.line = self.getInsertedLine(surrounding)
+            self.nvim.current.line = self.get_inserted_line(surrounding)
 
-    def getInsertedWord(self, surrounding):
+    def get_inserted_word(self, surrounding):
         line = self.nvim.current.line
         cursor = self.nvim.current.window.cursor[1]
         right = self.nvim.current.line.find(' ', cursor)
@@ -106,4 +106,4 @@ class SurroundPlugin(object):
     def surround_word(self, args):
         surrounding = self.lookup_surrounding(args[0])
         if surrounding:
-            self.nvim.current.line = self.getInsertedWord(surrounding)
+            self.nvim.current.line = self.get_inserted_word(surrounding)
