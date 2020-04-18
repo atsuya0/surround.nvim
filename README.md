@@ -3,9 +3,9 @@
 ## map
 ```vim
 nmap <Leader>s [surround]
-nnoremap <silent> [surround]l :SurroundLine
-nnoremap <silent> [surround]w :SurroundWord
-nnoremap <silent> [surround]c :ChSurround
+nnoremap <silent> [surround]l :SurroundLine<space>
+nnoremap <silent> [surround]w :SurroundWord<space>
+nnoremap <silent> [surround]c :ChSurround<space>
 nnoremap <silent> [surround]r :RmSurround<CR>
 ```
 
