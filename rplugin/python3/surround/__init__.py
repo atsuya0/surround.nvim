@@ -11,13 +11,13 @@ class SurroundPlugin(object):
     def echo(self, msg):
         self.nvim.out_write(msg + "\n")
 
-    # look up a pair of surroundings corresponding to an argument.
+    # Look up a pair of surroundings corresponding to an argument.
     def lookup_surrounding(self, arg):
         for surrounding in self.surroundings:
             if surrounding[0] == arg or surrounding[1] == arg:
                 return surrounding
 
-    # search a pair of surroundings from buffer.
+    # Search a pair of surroundings from buffer.
     def search_surroundings(self, surrounding, row, starting_point):
         # ] is must be placed at the beginning of the character set.
         match = re.search('[' + surrounding[1] + surrounding[0] + ']',
