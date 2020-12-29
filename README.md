@@ -10,7 +10,8 @@ nnoremap <silent> [surround]r :RmSurround<CR>
 ```
 
 ## SurroundLine
-A state where the cursor is at the second character.  execute `SurroundLine{`.
+A state where the cursor is at the second character.  
+execute `SurroundLine{`.  
 before
 ```
 def echo(self):
@@ -21,7 +22,8 @@ after
 ```
 
 ## SurroundWord
-A state where the cursor is at the second character.  execute `SurroundLine"`.
+A state where the cursor is at the second character.  
+execute `SurroundLine"`.  
 before
 ```
 def echo(self):
@@ -32,7 +34,8 @@ after
 ```
 
 ## ChSurround
-A state where the cursor is at the '('.  execute `ChSurround<`.
+A state where the cursor is at the '('.  
+execute `ChSurround<`.  
 before
 ```
 def echo(self):
@@ -43,7 +46,8 @@ def echo<self>:
 ```
 
 ## RmSurround
-A state where the cursor is at the '('.  execute `RmSurround`.
+A state where the cursor is at the '('.  
+execute `RmSurround`.  
 before
 ```
 def echo(self):
